@@ -38,7 +38,7 @@ def try_docker_else_env(key, default):
 SECRET_KEY = envget(
     "DJANGO_SECRET_KEY", default="django-insecure-n*%-(@75nwe&+6fw9y73^fp%()b%p+3^%*dd_ujn=z(!t0id60")
 
-DEBUG = int(envget("DJANGO_DEBUG_MODE", default=1))
+DEBUG = bool(envget("DJANGO_DEBUG_MODE", default=1))
 
 _django_allowed_hosts = envget("DJANGO_ALLOWED_HOSTS", default="").split(" ")
 ALLOWED_HOSTS = list(set(_django_allowed_hosts + ["localhost", "127.0.0.1", "[::1]"]))
